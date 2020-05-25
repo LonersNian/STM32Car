@@ -37,6 +37,7 @@
 
 /* USER CODE BEGIN Includes */
 #include "motor.h"
+#include "elude.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -85,7 +86,9 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-
+    Elude_explore();
+      //Turnleft();
+    Elude_control();
   /* USER CODE BEGIN 3 */
 
   }

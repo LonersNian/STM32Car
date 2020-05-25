@@ -38,7 +38,7 @@ void Elude_explore(void)
 //    void Turnright(void);
 
 //循迹控制函数
-void Elude_control()
+void Elude_control(void)
 {
 	delay_init(168);               	//初始化延时函数
     switch(Elude_Input)
