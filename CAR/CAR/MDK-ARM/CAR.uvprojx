@@ -461,7 +461,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>motor</GroupName>
+          <GroupName>Motor</GroupName>
           <Files>
             <File>
               <FileName>motor.h</FileName>
@@ -489,6 +489,9 @@
               <FilePath>.\USERS\elude.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>Track</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

@@ -1,7 +1,7 @@
 #include "elude.h"
 
 /**
-* 循迹功能
+* 避障功能
 * 共三个模块,
     PD11 左
     PD12 中
@@ -12,7 +12,7 @@
 
 
 //避障模块返回值
-u8 Elude_Input=0;
+u16 Elude_Input=0;
 
 
 //brief:红外避障模块检测障碍物
