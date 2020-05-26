@@ -54,7 +54,8 @@ void MX_TIM2_Init(void)
   htim2.Init.Period = 1000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_Base_Init(&htim2);
-
+    
+  HAL_TIM_Base_Start_IT(&htim2);
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig);
 

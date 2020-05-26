@@ -38,6 +38,7 @@
 /* USER CODE BEGIN Includes */
 #include "motor.h"
 #include "elude.h"
+#include "track.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -75,10 +76,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  SystemClock_Config();
+  MX_TIM2_Init();
   MX_TIM3_Init();
-
   /* USER CODE BEGIN 2 */
-//Turnback();
+//task();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -86,9 +88,7 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-    Elude_explore();
-      //Turnleft();
-    Elude_control();
+
   /* USER CODE BEGIN 3 */
 
   }

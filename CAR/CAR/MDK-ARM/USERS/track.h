@@ -1,7 +1,7 @@
 #ifndef __TRACK_H
 #define __TRACK_H
 
-
+//在TIM2初始化中加入： HAL_TIM_Base_Start_IT(&htim2);
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 #include "sys.h"
@@ -21,8 +21,10 @@
 #define		All_Black   			0x07	// 全部发现黑线
 //-----------------------------------------------------------------------------------
 
+#define LED0 PFout(9)   	//LED0
+#define LED1 PFout(10)   	//LED1
 void Track_explore(void);   //红外避障模块检测障碍物
 void Track_control(void);   //循迹控制函数
-  
+void Not_Find_Black(void);
 
 #endif /* __TRACK_H */

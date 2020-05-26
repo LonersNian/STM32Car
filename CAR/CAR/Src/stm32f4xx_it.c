@@ -36,7 +36,7 @@
 #include "stm32f4xx_it.h"
 
 /* USER CODE BEGIN 0 */
-
+#include "track.h"
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -178,11 +178,14 @@ void SysTick_Handler(void)
 void TIM2_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM2_IRQn 0 */
+    
 
   /* USER CODE END TIM2_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim2);
-  /* USER CODE BEGIN TIM2_IRQn 1 */
-
+  //HAL_TIM_IRQHandler(&htim2);
+    
+     
+      /* USER CODE BEGIN TIM2_IRQn 1 */
+    Not_Find_Black(); //用法见track.h,不能和HAL_TIM_IRQHandler(&htim2);同时使用，互相冲突
   /* USER CODE END TIM2_IRQn 1 */
 }
 
