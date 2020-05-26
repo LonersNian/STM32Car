@@ -10,16 +10,16 @@
 #include "motor.h"
 
 // 红外循迹情况
-//-----------------------------------------------------------------
-#define		No_BLACK                0x07	// 未发现黑线     111
-#define		Middle_BLACK		    0x05	// 中间发现黑线   101
-#define		Left_BLACK			    0x06	// 左边发现黑线   110
-#define		Left_Middle_BLACK   	0x04	// 左中侧发现黑线 100
-#define		Right_BLACK             0x03	// 右边发现黑线   011 
-#define		Right_Middle_BLACK      0x01	// 右中侧发现黑线 001
-#define		Left_Right_BLACK		0x02	// 左右测发现黑线 010
-
-//-----------------------------------------------------------------
+//---------------------------------------------------------------------
+#define		Not_Black		    	0x00	// 未发现黑线
+#define		Middle_Black			0x02	// 中间发现黑线
+#define		Left_Black		        0x01	// 左侧发现黑线
+#define		Left_Middle_Black	    0x03	// 左中侧发现黑线
+#define		Right_Black			    0x04	// 右侧发现黑线
+#define		Right_Middle_Black	    0x06	// 右中侧发现黑线
+#define		Left_Right_Black		0x05	// 左右侧发现黑线
+#define		All_Black   			0x07	// 全部发现黑线
+//-----------------------------------------------------------------------------------
 
 void Track_explore(void);   //红外避障模块检测障碍物
 void Track_control(void);   //循迹控制函数
