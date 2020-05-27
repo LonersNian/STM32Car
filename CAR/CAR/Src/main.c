@@ -88,7 +88,8 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-
+Track_explore();   //红外避障模块检测障碍物
+ Track_control();   //循迹控制函数
   /* USER CODE BEGIN 3 */
 
   }

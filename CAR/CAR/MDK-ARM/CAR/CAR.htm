@@ -3,7 +3,7 @@
 <title>Static Call Graph - [CAR\CAR.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image CAR\CAR.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed May 27 00:19:16 2020
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5050106: Last Updated: Wed May 27 18:14:13 2020
 <BR><P>
 <H3>Maximum Stack Usage =        148 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -126,7 +126,7 @@ Global Symbols
 <P><STRONG><a name="[5d]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(.text)
 </UL>
-<P><STRONG><a name="[8d]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[93]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[5e]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -136,15 +136,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[8e]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[94]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[8f]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[95]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[90]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[96]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[91]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[97]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[92]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[98]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 8 bytes, Stack size 0 bytes, startup_stm32f407xx.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
@@ -413,7 +413,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[93]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[99]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
 <P><STRONG><a name="[4]"></a>BusFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.BusFault_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;BusFault_Handler
@@ -437,7 +437,11 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[84]"></a>HAL_GPIO_WritePin</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_hal_gpio.o(i.HAL_GPIO_WritePin))
-<BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
+<BR><BR>[Called By]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnright
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnleft
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnfoward
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stop
+<LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 </UL>
 
 <P><STRONG><a name="[6a]"></a>HAL_GetTick</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_GetTick))
@@ -445,7 +449,7 @@ Global Symbols
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
 </UL>
 
-<P><STRONG><a name="[89]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_IncTick))
+<P><STRONG><a name="[8a]"></a>HAL_IncTick</STRONG> (Thumb, 10 bytes, Stack size 0 bytes, stm32f4xx_hal.o(i.HAL_IncTick))
 <BR><BR>[Called By]<UL><LI><a href="#[9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SysTick_Handler
 </UL>
 
@@ -490,7 +494,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_MspInit
 <LI><a href="#[72]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_Base_MspInit
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -509,7 +513,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 <LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[65]"></a>HAL_RCC_GetHCLKFreq</STRONG> (Thumb, 38 bytes, Stack size 8 bytes, stm32f4xx_hal_rcc.o(i.HAL_RCC_GetHCLKFreq))
@@ -517,7 +521,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -540,11 +544,11 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GetTick
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
-<P><STRONG><a name="[8b]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
-<BR><BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<P><STRONG><a name="[8c]"></a>HAL_SYSTICK_CLKSourceConfig</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_CLKSourceConfig))
+<BR><BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 
 <P><STRONG><a name="[70]"></a>HAL_SYSTICK_Callback</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_hal_cortex.o(i.HAL_SYSTICK_Callback))
@@ -556,7 +560,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[68]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 </UL>
-<BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<BR>[Called By]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 <LI><a href="#[63]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_InitTick
 </UL>
 
@@ -696,23 +700,31 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[8c]"></a>Not_Find_Black</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, track.o(i.Not_Find_Black))
+<P><STRONG><a name="[8d]"></a>Not_Find_Black</STRONG> (Thumb, 52 bytes, Stack size 0 bytes, track.o(i.Not_Find_Black))
 <BR><BR>[Called By]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM2_IRQHandler
+</UL>
+
+<P><STRONG><a name="[89]"></a>Stop</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, motor.o(i.Stop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Stop
+</UL>
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_control
 </UL>
 
 <P><STRONG><a name="[9]"></a>SysTick_Handler</STRONG> (Thumb, 14 bytes, Stack size 8 bytes, stm32f4xx_it.o(i.SysTick_Handler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SysTick_Handler &rArr; HAL_SYSTICK_IRQHandler
 </UL>
 <BR>[Calls]<UL><LI><a href="#[6f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_IRQHandler
-<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
+<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_IncTick
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[8a]"></a>SystemClock_Config</STRONG> (Thumb, 140 bytes, Stack size 88 bytes, main.o(i.SystemClock_Config))
+<P><STRONG><a name="[8b]"></a>SystemClock_Config</STRONG> (Thumb, 140 bytes, Stack size 88 bytes, main.o(i.SystemClock_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_RCC_GetHCLKFreq &rArr; HAL_RCC_GetSysClockFreq
 </UL>
 <BR>[Calls]<UL><LI><a href="#[66]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_Config
-<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
+<LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SYSTICK_CLKSourceConfig
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_OscConfig
 <LI><a href="#[65]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetHCLKFreq
 <LI><a href="#[69]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_ClockConfig
@@ -725,7 +737,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(.text)
 </UL>
 <P><STRONG><a name="[26]"></a>TIM2_IRQHandler</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.TIM2_IRQHandler))
-<BR><BR>[Calls]<UL><LI><a href="#[8c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Not_Find_Black
+<BR><BR>[Calls]<UL><LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Not_Find_Black
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
@@ -742,6 +754,45 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[7c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PWM_ConfigChannel
 </UL>
 
+<P><STRONG><a name="[8e]"></a>Track_control</STRONG> (Thumb, 44 bytes, Stack size 0 bytes, track.o(i.Track_control))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Track_control &rArr; Turnright
+</UL>
+<BR>[Calls]<UL><LI><a href="#[90]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnright
+<LI><a href="#[91]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnleft
+<LI><a href="#[8f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Turnfoward
+<LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Stop
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[92]"></a>Track_explore</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, track.o(i.Track_explore))
+<BR><BR>[Called By]<UL><LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[8f]"></a>Turnfoward</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, motor.o(i.Turnfoward))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Turnfoward
+</UL>
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_control
+</UL>
+
+<P><STRONG><a name="[91]"></a>Turnleft</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, motor.o(i.Turnleft))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Turnleft
+</UL>
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_control
+</UL>
+
+<P><STRONG><a name="[90]"></a>Turnright</STRONG> (Thumb, 90 bytes, Stack size 8 bytes, motor.o(i.Turnright))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Turnright
+</UL>
+<BR>[Calls]<UL><LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
+</UL>
+<BR>[Called By]<UL><LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_control
+</UL>
+
 <P><STRONG><a name="[5]"></a>UsageFault_Handler</STRONG> (Thumb, 2 bytes, Stack size 0 bytes, stm32f4xx_it.o(i.UsageFault_Handler))
 <BR><BR>[Calls]<UL><LI><a href="#[5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UsageFault_Handler
 </UL>
@@ -749,20 +800,22 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f407xx.o(RESET)
 </UL>
-<P><STRONG><a name="[94]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[9a]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[95]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[9b]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
 
-<P><STRONG><a name="[96]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[9c]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
-<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[5b]"></a>main</STRONG> (Thumb, 34 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 148<LI>Call Chain = main &rArr; SystemClock_Config &rArr; HAL_RCC_ClockConfig &rArr; HAL_InitTick &rArr; HAL_RCC_GetHCLKFreq &rArr; HAL_RCC_GetSysClockFreq
 </UL>
-<BR>[Calls]<UL><LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
+<BR>[Calls]<UL><LI><a href="#[92]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_explore
+<LI><a href="#[8e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Track_control
+<LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM3_Init
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_TIM2_Init
 <LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;MX_GPIO_Init
 <LI><a href="#[61]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_Init
-<LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemClock_Config
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
 </UL><P>
