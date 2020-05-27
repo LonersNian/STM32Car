@@ -3,6 +3,18 @@
 
 //在TIM2初始化中加入： HAL_TIM_Base_Start_IT(&htim2);
 
+/***************调用方法，主函数中加入*************/////
+ //while (1)
+//  {
+//  /* USER CODE END WHILE */
+//Track_explore();   //红外避障模块检测障碍物
+// Track_control();   //循迹控制函数
+//  /* USER CODE BEGIN 3 */
+
+//  }
+//  /* USER CODE END 3 */
+
+
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 #include "sys.h"

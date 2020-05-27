@@ -114,7 +114,7 @@ void Track_control(void)
             Turnleft();     //左转
             break;
         default:            //其他情况，比如抬起
-            Stop();         //停止
+            Turnfoward();         //停止
       }
     }
 

@@ -36,7 +36,7 @@
 #include "tim.h"
 
 /* USER CODE BEGIN 0 */
-
+//  HAL_TIM_Base_Start_IT(&htim2);
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -65,6 +65,7 @@ void MX_TIM2_Init(void)
 
 }
 /* TIM3 init function */
+/* TIM3 init function */
 void MX_TIM3_Init(void)
 {
   TIM_ClockConfigTypeDef sClockSourceConfig;
@@ -88,19 +89,26 @@ void MX_TIM3_Init(void)
   HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 1000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+
+  
+  //主要是下面的不会自动生成
+ sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
 
-  sConfigOC.Pulse = 2000;
+  sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2);
+ HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 
-  sConfigOC.Pulse = 3000;
+  sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3);
+ HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_3);
 
-  sConfigOC.Pulse = 4000;
+  sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_4);
 
   HAL_TIM_MspPostInit(&htim3);
 
