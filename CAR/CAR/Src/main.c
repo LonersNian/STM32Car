@@ -82,7 +82,7 @@ int main(void)
   MX_TIM3_Init();
     
   /* USER CODE BEGIN 2 */
-    usmart_dev.init(84);
+usmart_dev.init(84);
 //task();
   /* USER CODE END 2 */
 

@@ -458,6 +458,11 @@
               <FileType>5</FileType>
               <FilePath>.\SYSTEM\sys.h</FilePath>
             </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SYSTEM\usart.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -506,7 +511,7 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>USMART</GroupName>
+          <GroupName>Usmart</GroupName>
           <Files>
             <File>
               <FileName>usmart.c</FileName>
