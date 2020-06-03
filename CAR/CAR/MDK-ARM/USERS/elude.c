@@ -48,10 +48,13 @@ void Elude_control(void)
             break;
         case Middle_Block:  //中间或全部发现障碍
         case All_Block:
+        case Left_Right_Block: //两侧发现障碍，常用于拐角
             Turnback();     //先后退
-            delay_ms(200);
+            delay_ms(500);
+        
             Turnleft();     //再左转
-            delay_ms(200);
+            delay_ms(500);
+
             break;
         case Right_Block:   // 右边发现障碍    
         case Right_Middle_Block:

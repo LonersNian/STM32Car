@@ -39,6 +39,7 @@
 #include "motor.h"
 #include "elude.h"
 #include "track.h"
+#include "usmart.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -79,7 +80,9 @@ int main(void)
   SystemClock_Config();
   MX_TIM2_Init();
   MX_TIM3_Init();
+    
   /* USER CODE BEGIN 2 */
+    usmart_dev.init(84);
 //task();
   /* USER CODE END 2 */
 
@@ -88,7 +91,8 @@ int main(void)
   while (1)
   {
   /* USER CODE END WHILE */
-
+ Elude_explore();   //∫ÏÕ‚±‹’œƒ£øÈºÏ≤‚’œ∞≠ŒÔ
+ Elude_control();   //—≠º£øÿ÷∆∫Ø ˝
   /* USER CODE BEGIN 3 */
 
   }
