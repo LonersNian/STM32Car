@@ -1,7 +1,7 @@
-#ifndef _USART_H
-#define _USART_H
+#ifndef _Z_USART_H
+#define _Z_USART_H
 
-#ifdef __cplusplus
+#ifdef cplusplus
 extern "C" {
 #endif
     

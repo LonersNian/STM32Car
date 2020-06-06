@@ -33,6 +33,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_hal.h"
 #include "tim.h"
+#include "usart.h"
 #include "gpio.h"
 
 /* USER CODE BEGIN Includes */
@@ -40,6 +41,8 @@
 #include "elude.h"
 #include "track.h"
 #include "usmart.h"
+#include "stm32f4xx_it.h"
+#include "hc05.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -80,9 +83,11 @@ int main(void)
   SystemClock_Config();
   MX_TIM2_Init();
   MX_TIM3_Init();
-    
+  MX_USART2_UART_Init();
+
   /* USER CODE BEGIN 2 */
-usmart_dev.init(84);
+Bluetooth_control();
+//usmart_dev.init(84);
 //task();
   /* USER CODE END 2 */
 
@@ -91,8 +96,7 @@ usmart_dev.init(84);
   while (1)
   {
   /* USER CODE END WHILE */
- Elude_explore();   //∫ÏÕ‚±‹’œƒ£øÈºÏ≤‚’œ∞≠ŒÔ
- Elude_control();   //—≠º£øÿ÷∆∫Ø ˝
+
   /* USER CODE BEGIN 3 */
 
   }

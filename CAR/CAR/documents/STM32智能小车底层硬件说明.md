@@ -46,7 +46,9 @@ TIM3_CH3(PC8) ---R1 棕线
 TIM3_CH2(PC7) ---L2 橙线
 TIM3_CH4(PC9) ---L1 棕线
 
-
+#### 蓝牙HC05
+PA2 USART2_TX
+PA3 USART_RX
 
 
 

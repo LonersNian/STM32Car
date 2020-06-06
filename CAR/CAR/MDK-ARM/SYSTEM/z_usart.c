@@ -1,3 +1,4 @@
+#include "z_usart.h"
 #include "usart.h"
 #include "delay.h"
 ////////////////////////////////////////////////////////////////////////////////// 	 
@@ -78,34 +79,34 @@ void uart_init(u32 bound)
 //UART底层初始化，时钟使能，引脚配置，中断配置
 //此函数会被HAL_UART_Init()调用
 //huart:串口句柄
+//此函数与STM32cubeMX配置函数冲突，已经移到系统usart.c文件中
+//void HAL_UART_MspInit(UART_HandleTypeDef *huart)
+//{
+//    //GPIO端口设置
+//	GPIO_InitTypeDef GPIO_Initure;
+//	
+//	if(huart->Instance==USART1)//如果是串口1，进行串口1 MSP初始化
+//	{
+//		__HAL_RCC_GPIOA_CLK_ENABLE();			//使能GPIOA时钟
+//		__HAL_RCC_USART1_CLK_ENABLE();			//使能USART1时钟
+//	
+//		GPIO_Initure.Pin=GPIO_PIN_9;			//PA9
+//		GPIO_Initure.Mode=GPIO_MODE_AF_PP;		//复用推挽输出
+//		GPIO_Initure.Pull=GPIO_PULLUP;			//上拉
+//		GPIO_Initure.Speed=GPIO_SPEED_FAST;		//高速
+//		GPIO_Initure.Alternate=GPIO_AF7_USART1;	//复用为USART1
+//		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//初始化PA9
 
-void HAL_UART_MspInit(UART_HandleTypeDef *huart)
-{
-    //GPIO端口设置
-	GPIO_InitTypeDef GPIO_Initure;
-	
-	if(huart->Instance==USART1)//如果是串口1，进行串口1 MSP初始化
-	{
-		__HAL_RCC_GPIOA_CLK_ENABLE();			//使能GPIOA时钟
-		__HAL_RCC_USART1_CLK_ENABLE();			//使能USART1时钟
-	
-		GPIO_Initure.Pin=GPIO_PIN_9;			//PA9
-		GPIO_Initure.Mode=GPIO_MODE_AF_PP;		//复用推挽输出
-		GPIO_Initure.Pull=GPIO_PULLUP;			//上拉
-		GPIO_Initure.Speed=GPIO_SPEED_FAST;		//高速
-		GPIO_Initure.Alternate=GPIO_AF7_USART1;	//复用为USART1
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//初始化PA9
+//		GPIO_Initure.Pin=GPIO_PIN_10;			//PA10
+//		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//初始化PA10
+//		
+//#if EN_USART1_RX
+//		HAL_NVIC_EnableIRQ(USART1_IRQn);				//使能USART1中断通道
+//		HAL_NVIC_SetPriority(USART1_IRQn,3,3);			//抢占优先级3，子优先级3
+//#endif	
+//	}
 
-		GPIO_Initure.Pin=GPIO_PIN_10;			//PA10
-		HAL_GPIO_Init(GPIOA,&GPIO_Initure);	   	//初始化PA10
-		
-#if EN_USART1_RX
-		HAL_NVIC_EnableIRQ(USART1_IRQn);				//使能USART1中断通道
-		HAL_NVIC_SetPriority(USART1_IRQn,3,3);			//抢占优先级3，子优先级3
-#endif	
-	}
-
-}
+//}
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
