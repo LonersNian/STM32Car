@@ -37,6 +37,7 @@
 
 /* USER CODE BEGIN 0 */
 #include "track.h"
+#include "hc05.h"
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
@@ -194,11 +195,12 @@ void TIM2_IRQHandler(void)
 void USART2_IRQHandler(void)
 {
   /* USER CODE BEGIN USART2_IRQn 0 */
-
+   Bluetooth_control();
   /* USER CODE END USART2_IRQn 0 */
-  HAL_UART_IRQHandler(&huart2);
+ // HAL_UART_IRQHandler(&huart2);
   /* USER CODE BEGIN USART2_IRQn 1 */
-
+    //可以把上面函数注释掉
+ 
   /* USER CODE END USART2_IRQn 1 */
 }
 

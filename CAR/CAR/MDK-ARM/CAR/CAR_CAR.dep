@@ -1,5 +1,5 @@
 Dependencies for Project 'CAR', Target 'CAR': (DO NOT MODIFY !)
-F (../Src/main.c)(0x5EDBC272)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\main.o --omf_browse car\main.crf --depend car\main.d)
+F (../Src/main.c)(0x5EE79717)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\main.o --omf_browse car\main.crf --depend car\main.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5EDBAFB9)
 I (../Inc/mxconstants.h)(0x5EDBAFB9)
@@ -42,7 +42,7 @@ I (D:\mdk0\ARM\ARMCC\include\time.h)(0x5475F300)
 I (.\USMART\usmart.h)(0x575F7A44)
 I (.\USMART\usmart_str.h)(0x575F7A22)
 I (../Inc/stm32f4xx_it.h)(0x5EDBAFB9)
-I (.\USERS\hc05.h)(0x5EDBBAF9)
+I (.\USERS\hc05.h)(0x5EE7976D)
 F (../Src/gpio.c)(0x5EDBAFB9)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\gpio.o --omf_browse car\gpio.crf --depend car\gpio.d)
 I (../Inc/gpio.h)(0x5EDBAFB9)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
@@ -107,7 +107,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h)(0x56AB99D2)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x56AB99D6)
-F (../Src/usart.c)(0x5EDBAFB9)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\usart.o --omf_browse car\usart.crf --depend car\usart.d)
+F (../Src/usart.c)(0x5EE78F86)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\usart.o --omf_browse car\usart.crf --depend car\usart.d)
 I (../Inc/usart.h)(0x5EDBAFB9)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5EDBAFB9)
@@ -140,7 +140,7 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x56AB99D6)
 I (../Inc/gpio.h)(0x5EDBAFB9)
-F (../Src/stm32f4xx_it.c)(0x5EDBB03F)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\stm32f4xx_it.o --omf_browse car\stm32f4xx_it.crf --depend car\stm32f4xx_it.d)
+F (../Src/stm32f4xx_it.c)(0x5EE79464)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\stm32f4xx_it.o --omf_browse car\stm32f4xx_it.crf --depend car\stm32f4xx_it.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5EDBAFB9)
 I (../Inc/mxconstants.h)(0x5EDBAFB9)
@@ -179,6 +179,7 @@ I (../Inc/gpio.h)(0x5EDBAFB9)
 I (.\USERS\motor.h)(0x5ECEDDB8)
 I (../Inc/tim.h)(0x5EDBAFB9)
 I (D:\mdk0\ARM\ARMCC\include\time.h)(0x5475F300)
+I (.\USERS\hc05.h)(0x5EE7976D)
 F (../Src/stm32f4xx_hal_msp.c)(0x5EDBAFB9)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\stm32f4xx_hal_msp.o --omf_browse car\stm32f4xx_hal_msp.crf --depend car\stm32f4xx_hal_msp.d)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5EDBAFB9)
@@ -529,8 +530,8 @@ I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h)(0x56AB99D6)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h)(0x56AB99D6)
 I (USMART\usmart.h)(0x575F7A44)
-F (.\USERS\hc05.c)(0x5EDBBB01)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\hc05.o --omf_browse car\hc05.crf --depend car\hc05.d)
-I (USERS\hc05.h)(0x5EDBBAF9)
+F (.\USERS\hc05.c)(0x5EE7A563)(-c --cpu Cortex-M4.fp -D__MICROLIB -g -O2 --apcs=interwork --split_sections -I../Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I..\Drivers\STM32F4xx_HAL_Driver\Inc -I.\USERS -I.\SYSTEM -I.\USMART --C99-I E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE-I D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include-I D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include-D__UVISION_VERSION="514" -D_RTE_ -DSTM32F40_41xxx -DUSE_HAL_DRIVER -DSTM32F407xx-o car\hc05.o --omf_browse car\hc05.crf --depend car\hc05.d)
+I (USERS\hc05.h)(0x5EE7976D)
 I (../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h)(0x56AB99D6)
 I (../Inc/stm32f4xx_hal_conf.h)(0x5EDBAFB9)
 I (../Inc/mxconstants.h)(0x5EDBAFB9)
