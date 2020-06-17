@@ -1,95 +1,148 @@
 #include "hc05.h"
 
+//全局变量前加g,静态变亮前加s
+
+/**
+* 蓝牙控制命令（command判定值）
+* 以下宏不放在头文件中，不对外调用
+* 
+*/
+#define CONTROL_STOP         0x00   //停止
+#define CONTROL_FRONT        0x01   //前进
+#define CONTROL_BACK         0x02   //后退
+#define CONTROL_LEFT         0x03   //向左
+#define CONTROL_RIGHT        0x04   //向右
+#define CONTROL_FAST         0x05   //加速
+#define CONTROL_SLOW         0x06   //减速
+
+void Change_CH1_Speed(int num);
+void Change_CH2_Speed(int num);
+void Change_CH3_Speed(int num);
+void Change_CH4_Speed(int num);
+void Change_Speed(int num);
+
 void Bluetooth_control(void)    
 {
     u8 command;
     if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_RXNE)!=RESET))  //接收中断
 	{
-        //HAL_UART_Receive(&huart2,&command,1,1000);
-        command = (u16)huart2.Instance->DR;
-        //command=4;
-             //   HAL_UART_Transmit(&huart2,&command,1,1000);
-        if(command == 0x38)
-        {
-        HAL_GPIO_WritePin(GPIOF, LED0_Pin, GPIO_PIN_SET);
-
-        }
+        //__HAL_UART_CLEAR_FLAG(&huart2,UART_FLAG_RXNE);
         
-	 
+        //HAL_UART_Receive(&huart2,&command,1,1000);
+        command = (u16)huart2.Instance->DR;     //查看串口输入值
+        switch(command)
+          {
+            case CONTROL_STOP:      
+                Stop();             //停止
+                break;
+            case CONTROL_FRONT:      
+                Turnfoward();       //前进
+                break;
+            case CONTROL_BACK:      
+                Turnback();         //后退
+                break;
+            case CONTROL_LEFT:      
+                Turnleft();         //左转
+                break;
+            case CONTROL_RIGHT:      
+                Turnright();        //右转
+                break;
+            
+            case CONTROL_FAST:      
+                 Change_Speed(200); //加速
+                break;
+            case CONTROL_SLOW:      
+                 Change_Speed(-200); //减速
+                break;
+          }
 	}
-    huart2.Instance->DR=0x0;
+
 }
-//    u8 command;
-//    u8 len;	
-//	u16 times=0;
-////    if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_RXNE)!=RESET))  //接收中断
-////	{
-////        //HAL_UART_Receive(&huart2,&command,1,1000);
-////        command = (u16)huart2.Instance->DR;
-////        if(command == 12)
-////        {
-////        LED0=!LED0;
-////        
-////        }
-////	 
-////	}
-//    u8  USART2_RX_BUF[USART2_REC_LEN]; //接收缓冲,最大USART_REC_LEN个字节.末字节为换行符 
-//    u16 USART2_RX_STA;         		//接收状态标记	
-//void Bluetooth_control(void)    
-//{
 
-//    if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_RXNE)!=RESET))  //接收中断(接收到的数据必须是0x0d 0x0a结尾)
-//	{
-//        HAL_UART_Receive(&huart2,&command,1,1000); 
-//		if((USART2_RX_STA&0x8000)==0)//接收未完成
-//		{
-//			if(USART2_RX_STA&0x4000)//接收到了0x0d
-//			{
-//				if(command!=0x0a)USART2_RX_STA=0;//接收错误,重新开始
-//				else USART2_RX_STA|=0x8000;	//接收完成了 
-//			}
-//			else //还没收到0X0D
-//			{	
-//				if(command==0x0d)USART2_RX_STA|=0x4000;
-//				else
-//				{
-//					USART2_RX_BUF[USART2_RX_STA&0X3FFF]=command ;
-//					USART2_RX_STA++;
-//					if(USART2_RX_STA>(USART2_REC_LEN-1))USART2_RX_STA=0;//接收数据错误,重新开始接收	  
-//				}		 
-//			}
-//		}   		 
-//	}
-//	HAL_UART_IRQHandler(&huart2);
-// 
-//    
-//}
-//void lanya(void)
-//{
+/**  ==============================================================================
+                                    调速函数
+    ==============================================================================  **/
+/**
+* brief:同时调节四个车轮转速
+* attention:None
+* param:num:占空比变化量
+*/
+void Change_Speed(int num)
+{
+    Change_CH1_Speed(num);
+    Change_CH2_Speed(num);
+    Change_CH3_Speed(num);
+    Change_CH4_Speed(num);
+}
 
-//  while(1)
-//    {
-//			
-//       if(USART2_RX_STA&0x8000)
-//		{					   
-//			len=USART2_RX_STA&0x3fff;//得到此次接收到的数据长度
-//			printf("\r\n您发送的消息为:\r\n");
-//			HAL_UART_Transmit(&huart2,(uint8_t*)USART2_RX_BUF,len,1000);	//发送接收到的数据
-//			while(__HAL_UART_GET_FLAG(&huart2,UART_FLAG_TC)!=SET);		//等待发送结束
-//			printf("\r\n\r\n");//插入换行
-//			USART2_RX_STA=0;
-//		}else
-//		{
-//			times++;
-//			if(times%5000==0)
-//			{
-//				printf("\r\nALIENTEK 探索者STM32F407开发板 串口实验\r\n");
-//				printf("正点原子@ALIENTEK\r\n\r\n\r\n");
-//			}
-//			if(times%200==0)printf("请输入数据,以回车键结束\r\n");  
-//			if(times%30==0)LED0=!LED0;//闪烁LED,提示系统正在运行.
-//			delay_ms(10);   
-//		} 
-//    }	
+/**
+* brief:通过改变定时器2（对应电机驱动pwm）pwmCH1占空比实现调速
+* attention:None
+* param:num:占空比变化量
+*/
+void Change_CH1_Speed(int num)
+{
+    u32 compare=TIM2->CCR1;
+    if(compare==5000||compare==0)  //满占空比直接返回
+    {
+    return;
+    }
+    else
+    {
+    TIM2->CCR1 += num;  //占空比增加200
+    }
+}
 
+/**
+* brief:通过改变定时器2（对应电机驱动pwm）pwmCH1占空比实现调速
+* attention:None
+* param:num:占空比变化量
+*/
+void Change_CH2_Speed(int num)
+{
+    u32 compare=TIM2->CCR2;
+    if(compare==5000||compare==0)  //满占空比直接返回
+    {
+    return;
+    }
+    else
+    {
+    TIM2->CCR2 += num;  //占空比增加200
+    }
+}
 
+/**
+* brief:通过改变定时器3（对应电机驱动pwm）pwmCH3占空比实现调速
+* attention:None
+* param:num:占空比变化量
+*/
+void Change_CH3_Speed(int num)
+{
+    u32 compare=TIM2->CCR3;
+    if(compare==5000||compare==0)  //满占空比直接返回
+    {
+    return;
+    }
+    else
+    {
+    TIM2->CCR3 += num;  //占空比增加200
+    }
+}
+
+/**
+* brief:通过改变定时器4（对应电机驱动pwm）pwmCH4占空比实现调速
+* attention:None
+* param:num:占空比变化量
+*/
+void Change_CH4_Speed(int num)
+{
+    u32 compare=TIM2->CCR4;
+    if(compare==5000||compare==0)  //满占空比直接返回
+    {
+    return;
+    }
+    else
+    {
+    TIM2->CCR4 += num;  //占空比增加200
+    }
+}
