@@ -23,7 +23,8 @@ void Change_Speed(int num);
 
 void Bluetooth_control(void)    
 {
-    u8 command;
+    u16 command;
+    u8 aa;
     if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_RXNE)!=RESET))  //接收中断
 	{
         //__HAL_UART_CLEAR_FLAG(&huart2,UART_FLAG_RXNE);
@@ -49,10 +50,10 @@ void Bluetooth_control(void)
                 break;
             
             case CONTROL_FAST:      
-                 Change_Speed(200); //加速
+                 Change_Speed(500); //加速                
                 break;
             case CONTROL_SLOW:      
-                 Change_Speed(-200); //减速
+                 Change_Speed(-500); //减速
                 break;
           }
 	}
@@ -62,6 +63,7 @@ void Bluetooth_control(void)
 /**  ==============================================================================
                                     调速函数
     ==============================================================================  **/
+
 /**
 * brief:同时调节四个车轮转速
 * attention:None
@@ -82,14 +84,20 @@ void Change_Speed(int num)
 */
 void Change_CH1_Speed(int num)
 {
-    u32 compare=TIM2->CCR1;
-    if(compare==5000||compare==0)  //满占空比直接返回
+    u8 compare=TIM3->CCR1;
+    if(compare==5000)  //满占空比直接返回
     {
-    return;
+        if(num<0) TIM3->CCR1 += num;    //满占空比，只减小
+        else return ;
+    }
+    else if(compare==0)
+    {
+        if(num>0) TIM3->CCR1 += num;    //零占空比，只增加
+        else return ;
     }
     else
     {
-    TIM2->CCR1 += num;  //占空比增加200
+    TIM3->CCR1 += num;  //占空比增加200
     }
 }
 
@@ -100,14 +108,20 @@ void Change_CH1_Speed(int num)
 */
 void Change_CH2_Speed(int num)
 {
-    u32 compare=TIM2->CCR2;
-    if(compare==5000||compare==0)  //满占空比直接返回
+    u32 compare=TIM3->CCR2;
+    if(compare==5000)  //满占空比直接返回
     {
-    return;
+        if(num<0) TIM3->CCR2 += num;    //满占空比，只减小
+        else return ;
+    }
+    else if(compare==0)
+    {
+        if(num>0) TIM3->CCR2 += num;    //零占空比，只增加
+        else return ;
     }
     else
     {
-    TIM2->CCR2 += num;  //占空比增加200
+    TIM3->CCR2 += num;  //占空比增加200
     }
 }
 
@@ -118,14 +132,20 @@ void Change_CH2_Speed(int num)
 */
 void Change_CH3_Speed(int num)
 {
-    u32 compare=TIM2->CCR3;
-    if(compare==5000||compare==0)  //满占空比直接返回
+    u32 compare=TIM3->CCR3;
+    if(compare==5000)  //满占空比直接返回
     {
-    return;
+        if(num<0) TIM3->CCR3 += num;    //满占空比，只减小
+        else return ;
+    }
+    else if(compare==0)
+    {
+        if(num>0) TIM3->CCR3 += num;    //零占空比，只增加
+        else return ;
     }
     else
     {
-    TIM2->CCR3 += num;  //占空比增加200
+    TIM3->CCR3 += num;  //占空比增加200
     }
 }
 
@@ -136,13 +156,19 @@ void Change_CH3_Speed(int num)
 */
 void Change_CH4_Speed(int num)
 {
-    u32 compare=TIM2->CCR4;
-    if(compare==5000||compare==0)  //满占空比直接返回
+    u32 compare=TIM3->CCR4;
+    if(compare==5000)  //满占空比直接返回
     {
-    return;
+        if(num<0) TIM3->CCR4 += num;    //满占空比，只减小
+        else return ;
+    }
+    else if(compare==0)
+    {
+        if(num>0) TIM3->CCR4 += num;    //零占空比，只增加
+        else return ;
     }
     else
     {
-    TIM2->CCR4 += num;  //占空比增加200
+    TIM3->CCR4 += num;  //占空比增加200
     }
 }
