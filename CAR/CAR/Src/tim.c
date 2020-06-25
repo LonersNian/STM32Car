@@ -37,6 +37,27 @@
 
 /* USER CODE BEGIN 0 */
 //  HAL_TIM_Base_Start_IT(&htim2);
+//void MX_TIM2_Init(void)
+//{
+//  TIM_ClockConfigTypeDef sClockSourceConfig;
+//  TIM_MasterConfigTypeDef sMasterConfig;
+
+//  htim2.Instance = TIM2;
+//  htim2.Init.Prescaler = 84-1;
+//  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim2.Init.Period = 1000000-1;
+//  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  HAL_TIM_Base_Init(&htim2);
+////  HAL_TIM_Base_Start_IT(&htim2);
+//    
+//  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+//  HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig);
+
+//  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+//  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+//  HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig);
+
+//}
 /* USER CODE END 0 */
 
 TIM_HandleTypeDef htim2;
@@ -54,7 +75,8 @@ void MX_TIM2_Init(void)
   htim2.Init.Period = 1000000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_Base_Init(&htim2);
-
+  HAL_TIM_Base_Start_IT(&htim2);
+    
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig);
 
@@ -103,7 +125,7 @@ void MX_TIM3_Init(void)
 
   sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3);
- HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_3);
+  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_3);
 
   sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4);

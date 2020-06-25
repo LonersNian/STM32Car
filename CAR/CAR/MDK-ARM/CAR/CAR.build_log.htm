@@ -3,93 +3,57 @@
 <pre>
 <h1>礦ision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: μVision V5.14.0.0
-Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: 1 aaaa, 1, LIC=21E4T-RTR95-12TLE-5HJXQ-SR479-LNXGR
+IDE-Version: μVision V5.30.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: 1 aaaa, 1, LIC=RC93N-YLB5D-CXUU6-D9SPV-1PV13-3EZMZ
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard  Version: 5.14.0.0
-Toolchain Path:  D:\mdk0\ARM\ARMCC\Bin
-C Compiler:      Armcc.exe V5.05 update 1 (build 106)
-Assembler:       Armasm.exe V5.05 update 1 (build 106)
-Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
-Library Manager: ArmAr.exe V5.05 update 1 (build 106)
-Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.14.0.0
-Dialog DLL:      DCM.DLL V1.13.1.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V2.0.14.0_KEIL
-Dialog DLL:      TCM.DLL V1.14.4.0
+Toolchain:       MDK-ARM Plus  Version: 5.30.0.0
+Toolchain Path:  D:\MDK\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.30.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.7.0
+Dialog DLL:      TCM.DLL V1.42.0.0
  
 <h2>Project:</h2>
 E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\CAR.uvprojx
-Project File Date:  06/07/2020
+Project File Date:  06/20/2020
 
 <h2>Output:</h2>
-Rebuild target 'CAR'
-compiling main.c...
-compiling gpio.c...
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\MDK\ARM\ARMCC\Bin'
+Build target 'CAR'
 compiling tim.c...
-compiling usart.c...
-compiling stm32f4xx_it.c...
-../Src/stm32f4xx_it.c(198): warning:  #223-D: function "Bluetooth_control" declared implicitly
-     Bluetooth_control();
-../Src/stm32f4xx_it.c: 1 warning, 0 errors
-compiling stm32f4xx_hal_msp.c...
-compiling delay.c...
-compiling sys.c...
-compiling z_usart.c...
-compiling motor.c...
-compiling elude.c...
-compiling track.c...
-USERS\track.c(102): warning:  #111-D: statement is unreachable
-          Stop_Flag=0;                //只要有黑线标志位就清零
-USERS\track.c: 1 warning, 0 errors
-compiling usmart.c...
-compiling usmart_config.c...
-compiling usmart_str.c...
-compiling hc05.c...
-USERS\hc05.c(27): warning:  #177-D: variable "aa" was declared but never referenced
-      u8 aa;
-USERS\hc05.c: 1 warning, 0 errors
-compiling stm32f4xx_hal_usart.c...
-compiling stm32f4xx_hal_tim.c...
-compiling stm32f4xx_hal_tim_ex.c...
-compiling stm32f4xx_hal_rcc.c...
-compiling stm32f4xx_hal_rcc_ex.c...
-compiling stm32f4xx_hal_flash.c...
-compiling stm32f4xx_hal_flash_ex.c...
-compiling stm32f4xx_hal_flash_ramfunc.c...
-compiling stm32f4xx_hal_gpio.c...
-compiling stm32f4xx_hal_dma_ex.c...
-compiling stm32f4xx_hal_dma.c...
-compiling stm32f4xx_hal_pwr.c...
-compiling stm32f4xx_hal_pwr_ex.c...
-compiling stm32f4xx_hal_cortex.c...
-compiling stm32f4xx_hal.c...
-compiling stm32f4xx_hal_uart.c...
-assembling startup_stm32f407xx.s...
-compiling system_stm32f4xx.c...
 linking...
-Program Size: Code=12944 RO-data=540 RW-data=312 ZI-data=1536  
-"CAR\CAR.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=12952 RO-data=540 RW-data=312 ZI-data=1536  
+"CAR\CAR.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                http://www.keil.com/pack/ARM.CMSIS.4.2.0.pack
-                ARM::CMSIS:CORE:3.40.0
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
                 CMSIS (Cortex Microcontroller Software Interface Standard)
-   * Component: CORE Version: 3.40.0
+   * Component: CORE Version: 5.4.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.11.0.pack
+                Keil.STM32F4xx_DFP.2.11.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
 
 <h2>Collection of Component include folders:</h2>
-  E:\STM32CAR\STM32Car\CAR\CAR\MDK-ARM\RTE
-  D:\mdk0\ARM\CMSIS\4.2.0\CMSIS\Include
-  D:\mdk0\Keil\STM32F4xx_DFP\1.0.8\Device\Include
+  .\RTE\_CAR
+  C:\Users\aaaa\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Users\aaaa\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.11.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:3.40.0
-      Source file:   CMSIS\UserCodeTemplates\ARM\ITM_Retarget.c
+   * Component: ARM::CMSIS:CORE:5.4.0
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>
