@@ -62,6 +62,7 @@
 
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim9;
 
 /* TIM2 init function */
 void MX_TIM2_Init(void)
@@ -75,8 +76,7 @@ void MX_TIM2_Init(void)
   htim2.Init.Period = 1000000-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_Base_Init(&htim2);
-  HAL_TIM_Base_Start_IT(&htim2);
-    
+
   sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig);
 
@@ -86,7 +86,6 @@ void MX_TIM2_Init(void)
 
 }
 /* TIM3 init function */
-//* TIM3 init function */
 void MX_TIM3_Init(void)
 {
   TIM_ClockConfigTypeDef sClockSourceConfig;
@@ -110,28 +109,50 @@ void MX_TIM3_Init(void)
   HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 1000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
-
-  
-  //主要是下面的不会自动生成
-  sConfigOC.Pulse = 1500;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
 
-  sConfigOC.Pulse = 1500;
+  sConfigOC.Pulse = 2000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2);
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_2);
 
-  sConfigOC.Pulse = 1500;
+  sConfigOC.Pulse = 3000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3);
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_3);
 
-  sConfigOC.Pulse = 1500;
+  sConfigOC.Pulse = 4000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4);
-  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_4);
 
   HAL_TIM_MspPostInit(&htim3);
+
+}
+/* TIM9 init function */
+void MX_TIM9_Init(void)
+{
+  TIM_ClockConfigTypeDef sClockSourceConfig;
+  TIM_OC_InitTypeDef sConfigOC;
+
+  htim9.Instance = TIM9;
+  htim9.Init.Prescaler = 84-1;
+  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim9.Init.Period = 20000-1;
+  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  HAL_TIM_Base_Init(&htim9);
+
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  HAL_TIM_ConfigClockSource(&htim9, &sClockSourceConfig);
+
+  HAL_TIM_PWM_Init(&htim9);
+
+    
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start(&htim9,TIM_CHANNEL_1);
+  
+  HAL_TIM_MspPostInit(&htim9);
 
 }
 
@@ -164,6 +185,17 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 
   /* USER CODE END TIM3_MspInit 1 */
   }
+  else if(htim_base->Instance==TIM9)
+  {
+  /* USER CODE BEGIN TIM9_MspInit 0 */
+
+  /* USER CODE END TIM9_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM9_CLK_ENABLE();
+  /* USER CODE BEGIN TIM9_MspInit 1 */
+
+  /* USER CODE END TIM9_MspInit 1 */
+  }
 }
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
 {
@@ -174,7 +206,6 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
   /* USER CODE BEGIN TIM3_MspPostInit 0 */
 
   /* USER CODE END TIM3_MspPostInit 0 */
-  
     /**TIM3 GPIO Configuration    
     PC6     ------> TIM3_CH1
     PC7     ------> TIM3_CH2
@@ -191,6 +222,26 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
   /* USER CODE BEGIN TIM3_MspPostInit 1 */
 
   /* USER CODE END TIM3_MspPostInit 1 */
+  }
+  else if(htim->Instance==TIM9)
+  {
+  /* USER CODE BEGIN TIM9_MspPostInit 0 */
+
+  /* USER CODE END TIM9_MspPostInit 0 */
+  
+    /**TIM9 GPIO Configuration    
+    PE5     ------> TIM9_CH1 
+    */
+    GPIO_InitStruct.Pin = Servo_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF3_TIM9;
+    HAL_GPIO_Init(Servo_GPIO_Port, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN TIM9_MspPostInit 1 */
+
+  /* USER CODE END TIM9_MspPostInit 1 */
   }
 
 }
@@ -223,6 +274,17 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE BEGIN TIM3_MspDeInit 1 */
 
   /* USER CODE END TIM3_MspDeInit 1 */
+  }
+  else if(htim_base->Instance==TIM9)
+  {
+  /* USER CODE BEGIN TIM9_MspDeInit 0 */
+
+  /* USER CODE END TIM9_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_TIM9_CLK_DISABLE();
+  /* USER CODE BEGIN TIM9_MspDeInit 1 */
+
+  /* USER CODE END TIM9_MspDeInit 1 */
   }
 } 
 

@@ -49,7 +49,7 @@ void MX_USART2_UART_Init(void)
 {
 
   huart2.Instance = USART2;
-  huart2.Init.BaudRate = 9600;
+  huart2.Init.BaudRate = 115200;
   huart2.Init.WordLength = UART_WORDLENGTH_8B;
   huart2.Init.StopBits = UART_STOPBITS_1;
   huart2.Init.Parity = UART_PARITY_NONE;
@@ -57,10 +57,6 @@ void MX_USART2_UART_Init(void)
   huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart2.Init.OverSampling = UART_OVERSAMPLING_16;
   HAL_UART_Init(&huart2);
-   /* USER CODE BEGIN USART2_UART_Init 0 */
-  __HAL_UART_ENABLE_IT(&huart2,UART_IT_RXNE);  
-  /* USER CODE END USART2_UART_Init 0 */  
-
 
 }
 

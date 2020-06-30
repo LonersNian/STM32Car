@@ -43,6 +43,7 @@
 #include "usmart.h"
 #include "stm32f4xx_it.h"
 #include "hc05.h"
+#include "servo.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -83,11 +84,13 @@ int main(void)
   SystemClock_Config();
   MX_TIM2_Init();
   MX_TIM3_Init();
-    
-  MX_USART2_UART_Init();	
+  MX_TIM9_Init();
+  MX_USART2_UART_Init();
+
   /* USER CODE BEGIN 2 */
 //usmart_dev.init(84);
 //task();
+Servo_control();
   /* USER CODE END 2 */
 
   /* Infinite loop */

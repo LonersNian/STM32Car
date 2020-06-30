@@ -38,6 +38,8 @@
 
 /* Private define ------------------------------------------------------------*/
 
+#define Servo_Pin GPIO_PIN_5
+#define Servo_GPIO_Port GPIOE
 #define LED0_Pin GPIO_PIN_9
 #define LED0_GPIO_Port GPIOF
 #define LED1_Pin GPIO_PIN_10
