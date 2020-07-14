@@ -2,8 +2,8 @@
 #include "usmart_str.h"
 ////////////////////////////用户配置区///////////////////////////////////////////////
 //这下面要包含所用到的函数所申明的头文件(用户自己添加) 
-
-								 
+#include "servo.h"
+#include "motor.h"								 
 extern void led_set(u8 sta);
 extern void test_fun(void(*ledset)(u8),u8 sta);										  
 //函数名列表初始化(用户自己添加)
@@ -13,8 +13,17 @@ struct _m_usmart_nametab usmart_nametab[]=
 #if USMART_USE_WRFUNS==1 	//如果使能了读写操作
 	(void*)read_addr,"u32 read_addr(u32 addr)",
 	(void*)write_addr,"void write_addr(u32 addr,u32 val)",	 
-#endif		   
-
+#endif
+    (void*)Servo_control,"void Servo_control(void)",
+    (void*)R2_Rotation,"void R2_Rotation(void)",
+    (void*)R1_Rotation,"void R1_Rotation(void)",
+//    (void*)void L1_Rotation(void),
+//    (void*)void L2_Rotation(void),
+//    (void*)void Stop(void),
+//    (void*)void Turnfoward(void),
+//    (void*)void Turnback(void),
+//    (void*)void Turnleft(void),
+//    (void*)void Turnright(void),
 };						  
 ///////////////////////////////////END///////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////

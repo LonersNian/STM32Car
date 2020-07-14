@@ -44,6 +44,7 @@
 #include "stm32f4xx_it.h"
 #include "hc05.h"
 #include "servo.h"
+#include "z_usart.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -69,6 +70,7 @@ int main(void)
 {
 
   /* USER CODE BEGIN 1 */
+
   /* USER CODE END 1 */
 
   /* MCU Configuration----------------------------------------------------------*/
@@ -88,20 +90,21 @@ int main(void)
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
+   // usmart_dev.init(90); //≥ı ºªØ USMART
 //usmart_dev.init(84);
 //task();
-Servo_control();
+//Angle_control(25);
   /* USER CODE END 2 */
-
+     Servo_control();
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-  /* USER CODE END WHILE */
+  while (1);
+//  {
+//  /* USER CODE END WHILE */
+ 
+//  /* USER CODE BEGIN 3 */
 
-  /* USER CODE BEGIN 3 */
-
-  }
+//  }
   /* USER CODE END 3 */
 
 }
