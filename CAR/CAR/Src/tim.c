@@ -35,6 +35,8 @@
 /* Includes ------------------------------------------------------------------*/
 #include "tim.h"
 
+#include "gpio.h"
+
 /* USER CODE BEGIN 0 */
 //  HAL_TIM_Base_Start_IT(&htim2);
 //void MX_TIM2_Init(void)
@@ -63,6 +65,7 @@
 TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim9;
+TIM_HandleTypeDef htim14;
 
 /* TIM2 init function */
 void MX_TIM2_Init(void)
@@ -93,9 +96,9 @@ void MX_TIM3_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 8400-1;
+  htim3.Init.Prescaler = 84-1;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 200-1;
+  htim3.Init.Period = 5000-1;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_Base_Init(&htim3);
 
@@ -109,18 +112,15 @@ void MX_TIM3_Init(void)
   HAL_TIMEx_MasterConfigSynchronization(&htim3, &sMasterConfig);
 
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 10;
+  sConfigOC.Pulse = 1000;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
 
-  sConfigOC.Pulse = 2000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_2);
 
-  sConfigOC.Pulse = 3000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_3);
 
-  sConfigOC.Pulse = 4000;
   HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_4);
 
   HAL_TIM_MspPostInit(&htim3);
@@ -133,9 +133,9 @@ void MX_TIM9_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim9.Instance = TIM9;
-  htim9.Init.Prescaler = 168 - 1;
+  htim9.Init.Prescaler = 84-1;
   htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim9.Init.Period = 20000;
+  htim9.Init.Period = 20000-1;
   htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   HAL_TIM_Base_Init(&htim9);
 
@@ -144,21 +144,43 @@ void MX_TIM9_Init(void)
 
   HAL_TIM_PWM_Init(&htim9);
 
-    
   sConfigOC.OCMode = TIM_OCMODE_PWM1;
-  sConfigOC.Pulse = 2000;
+  sConfigOC.Pulse = 0;
   sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
   sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
   HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1);
-  HAL_TIM_PWM_Start(&htim9,TIM_CHANNEL_1);
-  
+
   HAL_TIM_MspPostInit(&htim9);
 
+}
+/* TIM14 init function */
+void MX_TIM14_Init(void)
+{
+  TIM_IC_InitTypeDef sConfigIC;
+
+  htim14.Instance = TIM14;
+  htim14.Init.Prescaler = 84-1;
+  htim14.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim14.Init.Period = 65536-1;
+  htim14.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  HAL_TIM_Base_Init(&htim14);
+
+  HAL_TIM_IC_Init(&htim14);
+
+  sConfigIC.ICPolarity = TIM_INPUTCHANNELPOLARITY_RISING;
+  sConfigIC.ICSelection = TIM_ICSELECTION_DIRECTTI;
+  sConfigIC.ICPrescaler = TIM_ICPSC_DIV1;
+  sConfigIC.ICFilter = 0;
+  HAL_TIM_IC_ConfigChannel(&htim14, &sConfigIC, TIM_CHANNEL_1);
+
+    HAL_TIM_IC_Start_IT(&htim14,TIM_CHANNEL_2);   //开启TIM2的捕获通道2，并且开启捕获中断
+    __HAL_TIM_ENABLE_IT(&htim14,TIM_IT_UPDATE);   //使能更新中断
 }
 
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
 {
 
+  GPIO_InitTypeDef GPIO_InitStruct;
   if(htim_base->Instance==TIM2)
   {
   /* USER CODE BEGIN TIM2_MspInit 0 */
@@ -195,6 +217,31 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE BEGIN TIM9_MspInit 1 */
 
   /* USER CODE END TIM9_MspInit 1 */
+  }
+  else if(htim_base->Instance==TIM14)
+  {
+  /* USER CODE BEGIN TIM14_MspInit 0 */
+
+  /* USER CODE END TIM14_MspInit 0 */
+    /* Peripheral clock enable */
+    __HAL_RCC_TIM14_CLK_ENABLE();
+  
+    /**TIM14 GPIO Configuration    
+    PA7     ------> TIM14_CH1 
+    */
+    GPIO_InitStruct.Pin = ECHO_Pin;
+    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
+    GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
+    GPIO_InitStruct.Alternate = GPIO_AF9_TIM14;
+    HAL_GPIO_Init(ECHO_GPIO_Port, &GPIO_InitStruct);
+
+    /* Peripheral interrupt init */
+    HAL_NVIC_SetPriority(TIM8_TRG_COM_TIM14_IRQn, 2, 0);
+    HAL_NVIC_EnableIRQ(TIM8_TRG_COM_TIM14_IRQn);
+  /* USER CODE BEGIN TIM14_MspInit 1 */
+
+  /* USER CODE END TIM14_MspInit 1 */
   }
 }
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
@@ -285,6 +332,26 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
   /* USER CODE BEGIN TIM9_MspDeInit 1 */
 
   /* USER CODE END TIM9_MspDeInit 1 */
+  }
+  else if(htim_base->Instance==TIM14)
+  {
+  /* USER CODE BEGIN TIM14_MspDeInit 0 */
+
+  /* USER CODE END TIM14_MspDeInit 0 */
+    /* Peripheral clock disable */
+    __HAL_RCC_TIM14_CLK_DISABLE();
+  
+    /**TIM14 GPIO Configuration    
+    PA7     ------> TIM14_CH1 
+    */
+    HAL_GPIO_DeInit(ECHO_GPIO_Port, ECHO_Pin);
+
+    /* Peripheral interrupt Deinit*/
+    HAL_NVIC_DisableIRQ(TIM8_TRG_COM_TIM14_IRQn);
+
+  /* USER CODE BEGIN TIM14_MspDeInit 1 */
+
+  /* USER CODE END TIM14_MspDeInit 1 */
   }
 } 
 

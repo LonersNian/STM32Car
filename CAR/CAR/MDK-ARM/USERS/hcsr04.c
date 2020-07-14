@@ -3,13 +3,14 @@
 #include "hcsr04.h"
 #include "delay.h"
 #include "tim.h"
-
+//    HAL_TIM_IC_Start_IT(&htim14,TIM_CHANNEL_2);   //开启TIM2的捕获通道2，并且开启捕获中断
+//    __HAL_TIM_ENABLE_IT(&htim14,TIM_IT_UPDATE);   //使能更新中断
 //PA6
-#define TRIG_Pin GPIO_PIN_6
-#define TRIG_GPIO_Port GPIOA
-//PA7
-#define ECHO_Pin GPIO_PIN_7
-#define ECHO_GPIO_Port GPIOA
+//#define TRIG_Pin GPIO_PIN_6
+//#define TRIG_GPIO_Port GPIOA
+////PA7
+//#define ECHO_Pin GPIO_PIN_7
+//#define ECHO_GPIO_Port GPIOA
 
 // TRIG触发测距，给最少10us的高电平信号
 void Hcsr04_Start(void)

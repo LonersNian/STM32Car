@@ -1,14 +1,6 @@
 #ifndef __TRACK_H
 #define __TRACK_H
-
-#include "stm32f4xx_hal.h"
-#include "sys.h"
 #include "delay.h"
-#include "gpio.h"
-#include "motor.h"
-#include "time.h"
-#include "usart.h"
-
 
 //接收状态
 //bit15，	接收完成标志

@@ -52,6 +52,10 @@
 #define WH_L21_GPIO_Port GPIOC
 #define WH_L22_Pin GPIO_PIN_3
 #define WH_L22_GPIO_Port GPIOC
+#define TRIG_Pin GPIO_PIN_6
+#define TRIG_GPIO_Port GPIOA
+#define ECHO_Pin GPIO_PIN_7
+#define ECHO_GPIO_Port GPIOA
 #define WH_R11_Pin GPIO_PIN_4
 #define WH_R11_GPIO_Port GPIOC
 #define WH_R12_Pin GPIO_PIN_5

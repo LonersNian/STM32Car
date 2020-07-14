@@ -1,5 +1,11 @@
 #include "hc05.h"
+#include "stm32f4xx_hal.h"
+#include "sys.h"
 
+#include "gpio.h"
+#include "motor.h"
+#include "time.h"
+#include "usart.h"
 //全局变量前加g,静态变亮前加s
 
 /**

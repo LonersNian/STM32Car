@@ -87,6 +87,7 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM9_Init();
+  MX_TIM14_Init();
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
@@ -95,14 +96,14 @@ int main(void)
 //task();
 //Angle_control(25);
   /* USER CODE END 2 */
-     Servo_control();
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1);
 //  {
-//  /* USER CODE END WHILE */
- 
-//  /* USER CODE BEGIN 3 */
+  /* USER CODE END WHILE */
+
+  /* USER CODE BEGIN 3 */
 
 //  }
   /* USER CODE END 3 */

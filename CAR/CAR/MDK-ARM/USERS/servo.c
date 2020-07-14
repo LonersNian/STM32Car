@@ -2,6 +2,35 @@
 #include "sys.h"
 #include "delay.h"
 // AS 9P PE5
+//void MX_TIM9_Init(void)
+//{
+//  TIM_ClockConfigTypeDef sClockSourceConfig;
+//  TIM_OC_InitTypeDef sConfigOC;
+
+//  htim9.Instance = TIM9;
+//  htim9.Init.Prescaler = 168 - 1;
+//  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
+//  htim9.Init.Period = 20000;
+//  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+//  HAL_TIM_Base_Init(&htim9);
+
+//  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+//  HAL_TIM_ConfigClockSource(&htim9, &sClockSourceConfig);
+
+//  HAL_TIM_PWM_Init(&htim9);
+
+//    
+//  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+//  sConfigOC.Pulse = 2000;
+//  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+//  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+//  HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1);
+//  HAL_TIM_PWM_Start(&htim9,TIM_CHANNEL_1);
+//  
+//  HAL_TIM_MspPostInit(&htim9);
+
+//}
+
 void Set_compare(int compare);
 /*
 *   舵机的控制一般需要一个20ms左右的时基脉冲
