@@ -133,7 +133,7 @@ void MX_TIM9_Init(void)
   TIM_OC_InitTypeDef sConfigOC;
 
   htim9.Instance = TIM9;
-  htim9.Init.Prescaler = 84-1;
+  htim9.Init.Prescaler = 168-1;
   htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim9.Init.Period = 20000-1;
   htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -173,8 +173,9 @@ void MX_TIM14_Init(void)
   sConfigIC.ICFilter = 0;
   HAL_TIM_IC_ConfigChannel(&htim14, &sConfigIC, TIM_CHANNEL_1);
 
-    HAL_TIM_IC_Start_IT(&htim14,TIM_CHANNEL_2);   //开启TIM2的捕获通道2，并且开启捕获中断
+    HAL_TIM_IC_Start_IT(&htim14,TIM_CHANNEL_1);   //开启TIM2的捕获通道2，并且开启捕获中断
     __HAL_TIM_ENABLE_IT(&htim14,TIM_IT_UPDATE);   //使能更新中断
+
 }
 
 void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)

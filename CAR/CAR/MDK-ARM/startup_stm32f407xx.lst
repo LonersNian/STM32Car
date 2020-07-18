@@ -497,7 +497,7 @@ ARM Macro Assembler    Page 8
   187 00000000                 IMPORT           SystemInit
   188 00000000                 IMPORT           __main
   189 00000000         
-  190 00000000 4806            LDR              R0, =SystemInit
+  190 00000000 4806    a       LDR              R0, =SystemInit
   191 00000002 4780            BLX              R0
   192 00000004 4806            LDR              R0, =__main
   193 00000006 4700            BX               R0
@@ -1906,7 +1906,15 @@ Symbol: WWDG_IRQHandler
       At line 94 in file startup_stm32f407xx.s
       At line 242 in file startup_stm32f407xx.s
 
-93 symbols
+a 00000000
+
+Symbol: a
+   Definitions
+      At line 190 in file startup_stm32f407xx.s
+   Uses
+      None
+Comment: a unused
+94 symbols
 
 
 
@@ -1961,4 +1969,4 @@ Symbol: __main
       At line 192 in file startup_stm32f407xx.s
 Comment: __main used once
 2 symbols
-445 symbols in table
+446 symbols in table
