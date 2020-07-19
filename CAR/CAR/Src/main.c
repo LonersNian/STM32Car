@@ -92,7 +92,7 @@ int main(void)
   MX_USART2_UART_Init();
 
   /* USER CODE BEGIN 2 */
-
+    Hcsr04_Measure();
 
 
   /* USER CODE END 2 */
