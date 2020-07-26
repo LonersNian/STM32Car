@@ -72,6 +72,8 @@
 #define WH_R21_GPIO_Port GPIOD
 #define WH_R22_Pin GPIO_PIN_7
 #define WH_R22_GPIO_Port GPIOD
+#define ECHO2_Pin GPIO_PIN_6
+#define ECHO2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

@@ -134,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4107</DriverSelection>
+            <DriverSelection>4101</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>STLink\ST-LINKIII-KEIL_SWO.dll</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -313,7 +313,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>3</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -339,7 +339,7 @@
               <MiscControls>--C99</MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;     ../Drivers/STM32F4xx_HAL_Driver/Inc;     ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;     ../Drivers/CMSIS/Include;     ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;     ..\Drivers\STM32F4xx_HAL_Driver\Inc;     .\USERS;     .\SYSTEM;     .\USMART</IncludePath>
+              <IncludePath>../Inc;../Drivers/STM32F4xx_HAL_Driver/Inc;../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Include;../Drivers/CMSIS/Device/ST/STM32F4xx/Include;..\Drivers\STM32F4xx_HAL_Driver\Inc;.\USERS;.\SYSTEM;.\USMART</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -442,6 +442,11 @@
               <FileName>z_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SYSTEM\z_usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>my_delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SYSTEM\my_delay.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -642,6 +647,16 @@
               <FileName>hcsr04.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\USERS\hcsr04.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Ultrasonic</GroupName>
+          <Files>
+            <File>
+              <FileName>ultrasonic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\USERS\ultrasonic.c</FilePath>
             </File>
           </Files>
         </Group>

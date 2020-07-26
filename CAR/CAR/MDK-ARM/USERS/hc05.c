@@ -29,7 +29,6 @@ void Change_Speed(int num);
 void Bluetooth_control(void)    
 {
     u16 command;
-    u8 aa;
     if((__HAL_UART_GET_FLAG(&huart2,UART_FLAG_RXNE)!=RESET))  //Ω” ’÷–∂œ
 	{
         //__HAL_UART_CLEAR_FLAG(&huart2,UART_FLAG_RXNE);

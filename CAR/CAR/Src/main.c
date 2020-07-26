@@ -46,6 +46,8 @@
 #include "servo.h"
 #include "z_usart.h"
 #include "hcsr04.h"
+#include "ultrasonic.h"
+#include "my_delay.h"
 /* USER CODE END Includes */
 
 /* Private variables ---------------------------------------------------------*/
@@ -90,22 +92,27 @@ int main(void)
   MX_TIM9_Init();
   MX_TIM14_Init();
   MX_USART2_UART_Init();
+  MX_TIM6_Init();
+  MX_TIM7_Init();
 
   /* USER CODE BEGIN 2 */
-    Hcsr04_Measure();
+
+//Angle_control(0);      
+   // HAL_GPIO_WritePin(GPIOF,GPIO_PIN_10,GPIO_PIN_SET);
 
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1);
-//  {
+//  while (1)
+// {
   /* USER CODE END WHILE */
+	Ultrasonic_Eluge();
 
   /* USER CODE BEGIN 3 */
-
-//  }
+//   
+// }
   /* USER CODE END 3 */
 
 }

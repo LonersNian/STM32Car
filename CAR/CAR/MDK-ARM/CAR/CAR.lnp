@@ -8,6 +8,7 @@
 "car\delay.o"
 "car\sys.o"
 "car\z_usart.o"
+"car\my_delay.o"
 "car\motor.o"
 "car\elude.o"
 "car\track.o"
@@ -35,6 +36,7 @@
 "car\system_stm32f4xx.o"
 "car\servo.o"
 "car\hcsr04.o"
+"car\ultrasonic.o"
 --library_type=microlib --strict --scatter "CAR\CAR.sct"
 --diag_suppress=L6329 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

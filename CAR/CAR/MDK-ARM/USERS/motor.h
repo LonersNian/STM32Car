@@ -50,7 +50,7 @@
 //  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
 
 //  
-//  主要是下面的不会自动生成
+////  主要是下面的不会自动生成
 // sConfigOC.Pulse = 1500;
 //  HAL_TIM_PWM_ConfigChannel(&htim3, &sConfigOC, TIM_CHANNEL_1);
 //  HAL_TIM_PWM_Start(&htim3,TIM_CHANNEL_1);
